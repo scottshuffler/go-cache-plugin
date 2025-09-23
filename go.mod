@@ -6,6 +6,7 @@ require (
 	github.com/aws/aws-sdk-go-v2 v1.38.2
 	github.com/aws/aws-sdk-go-v2/config v1.31.5
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.87.2
+	github.com/aws/smithy-go v1.23.0
 	github.com/creachadair/atomicfile v0.3.8
 	github.com/creachadair/command v0.2.0
 	github.com/creachadair/flax v0.0.5
@@ -38,7 +39,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sso v1.29.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.34.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.38.1 // indirect
-	github.com/aws/smithy-go v1.23.0 // indirect
 	github.com/creachadair/msync v0.4.0 // indirect
 	github.com/go-json-experiment/json v0.0.0-20250223041408-d3c622f1b874 // indirect
 	go4.org/mem v0.0.0-20240501181205-ae6ca9944745 // indirect
