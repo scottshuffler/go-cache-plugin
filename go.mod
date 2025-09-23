@@ -57,3 +57,5 @@ retract (
 )
 
 tool honnef.co/go/tools/cmd/staticcheck
+
+replace github.com/tailscale/go-cache-plugin => github.com/scottshuffler/go-cache-plugin v0.1.1
