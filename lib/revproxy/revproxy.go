@@ -35,7 +35,7 @@ import (
 	"github.com/creachadair/mds/mapset"
 	"github.com/creachadair/scheddle"
 	"github.com/creachadair/taskgroup"
-	"github.com/scottshuffler/go-cache-plugin/lib/s3util"
+	"github.com/tailscale/go-cache-plugin/lib/s3util"
 )
 
 // Server is a caching reverse proxy server that caches successful responses to
