@@ -220,7 +220,10 @@ func (s *S3Cache) maybePutObject(ctx context.Context, outputID, diskPath, etag s
 	}
 	defer f.Close()
 
-	gocache.Logf(ctx, "[s3] opened diskpath succesfully: %s", diskPath)
+	gocache.Logf(ctx, "[s3] diskpath: %s", diskPath)
+	gocache.Logf(ctx, "[s3] filename: %s", f.Name())
+	gocache.Logf(ctx, "[s3] etag: %s", etag)
+	gocache.Logf(ctx, "[s3] key: %s", s.outputKey(outputID))
 
 	fi, err := f.Stat()
 	if err != nil {

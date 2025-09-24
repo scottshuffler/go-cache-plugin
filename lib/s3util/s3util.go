@@ -18,6 +18,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/aws/aws-sdk-go-v2/service/s3/types"
+	"github.com/creachadair/gocache"
 	"github.com/creachadair/mds/value"
 )
 
@@ -157,7 +158,10 @@ func (c *Client) PutCond(ctx context.Context, key, etag string, data io.Reader) 
 		Key:     &key,
 		IfMatch: &etag,
 	}); err == nil {
+		gocache.Logf(ctx, "[s3] head object was succesful")
 		return false, nil
+	} else {
+		gocache.Logf(ctx, "[s3] attempting to PUT after head object failed: %v", err)
 	}
 	return true, c.Put(ctx, key, data)
 }
