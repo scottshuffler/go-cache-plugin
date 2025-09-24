@@ -72,6 +72,7 @@ func initCacheServer(env *command.Env) (*gocache.Server, *s3util.Client, error) 
 		Client: s3.NewFromConfig(cfg, func(o *s3.Options) {
 			if strings.Contains(flags.S3Endpoint, "storage.googleapis.com") {
 				gcsutil.IgnoreSigningHeaders(o, []string{"Accept-Encoding"})
+				gcsutil.DisableTrailingChecksumForGCS(o)
 			}
 			o.UsePathStyle = flags.S3PathStyle
 		}),

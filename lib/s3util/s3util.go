@@ -110,10 +110,11 @@ func (c *Client) Put(ctx context.Context, key string, data io.Reader) error {
 		}
 	}
 	_, err := c.Client.PutObject(ctx, &s3.PutObjectInput{
-		Bucket:        &c.Bucket,
-		Key:           &key,
-		Body:          data,
-		ContentLength: sizePtr,
+		Bucket:            &c.Bucket,
+		Key:               &key,
+		Body:              data,
+		ContentLength:     sizePtr,
+		ChecksumAlgorithm: types.ChecksumAlgorithmCrc32c, // Required for GCS
 	})
 	return err
 }
@@ -127,6 +128,8 @@ func (c *Client) Get(ctx context.Context, key string) (io.ReadCloser, int64, err
 	rsp, err := c.Client.GetObject(ctx, &s3.GetObjectInput{
 		Bucket: &c.Bucket,
 		Key:    &key,
+		// ChecksumMode: types.ChecksumMode(types.ChecksumAlgorithmCrc32c),
+		// ChecksumAlgorithm: types.ChecksumAlgorithmCrc32c, // Required for GCS
 	})
 	if err != nil {
 		if IsNotExist(err) {
