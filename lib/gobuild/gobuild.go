@@ -22,7 +22,7 @@ import (
 	"github.com/creachadair/gocache"
 	"github.com/creachadair/gocache/cachedir"
 	"github.com/creachadair/taskgroup"
-	"github.com/tailscale/go-cache-plugin/lib/s3util"
+	"github.com/scottshuffler/go-cache-plugin/lib/s3util"
 )
 
 // S3Cache implements callbacks for a gocache.Server using an S3 bucket for
@@ -219,6 +219,9 @@ func (s *S3Cache) maybePutObject(ctx context.Context, outputID, diskPath, etag s
 		return time.Time{}, err
 	}
 	defer f.Close()
+
+	gocache.Logf(ctx, "[s3] opened diskpath succesfully: %s", diskPath)
+
 	fi, err := f.Stat()
 	if err != nil {
 		return time.Time{}, err

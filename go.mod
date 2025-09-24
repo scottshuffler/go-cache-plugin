@@ -17,7 +17,6 @@ require (
 	github.com/creachadair/taskgroup v0.14.0
 	github.com/creachadair/tlsutil v0.0.0-20250624153316-15acc082fa38
 	github.com/goproxy/goproxy v0.21.0
-	github.com/tailscale/go-cache-plugin v0.1.1
 	golang.org/x/sync v0.16.0
 	golang.org/x/sys v0.35.0
 	honnef.co/go/tools v0.6.1
